@@ -15,8 +15,8 @@ switch (op){
 
 
 
-let multiplicar = (a,b) => {
-    let a = prompt("Numero 1");
-    let b = prompt("Numero 2");
+const multiplicar = () => {
+    let a = +prompt("Numero 1");
+    let b = +prompt("Numero 2");
     alert(a*b)
 }
