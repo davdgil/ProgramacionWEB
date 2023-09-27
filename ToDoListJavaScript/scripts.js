@@ -16,6 +16,10 @@ const add = () => {
     tareaContainer.appendChild(completarBtn);
     tareaContainer.appendChild(eliminarBtn);
 
+    eliminarBtn.addEventListener('click', () => {
+        tareaContainer.remove()
+    })
+
     // Agrega la tarea al contenedorLabel
     var contenedor = document.getElementById('labelContainer');
     contenedor.appendChild(tareaContainer);
