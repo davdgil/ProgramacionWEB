@@ -15,6 +15,7 @@ const add = () => {
     tareaContainer.appendChild(label);
     tareaContainer.appendChild(completarBtn);
     tareaContainer.appendChild(eliminarBtn);
+    
 
     eliminarBtn.addEventListener('click', () => {
         tareaContainer.remove()

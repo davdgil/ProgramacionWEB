@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>To-do-List</title>
+        <link rel="stylesheet" type = "text/css" href="css.css">
+        <script src = scripts.js></script>
+    </head>
+    <body>
+        <h1>Introduzca en los siguientes cuadros la base y la altura de la que quiera calcular el area</h1>
+        <div id = "radioButtons"> 
+            <input type="radio"  id = " triangulo" name = "forma" checked><label>triangulo</label>
+            <input type="radio"  id = " rectangulo" name = "forma"><label>Rectangulo</label>
+            <br><br>
+        </div>   
+
+        <div id = "datos">
+            <label for = "base">Introduzca la base </label><input type="text" class = " inputs"  id="base"><br><br>
+            <label for="altura">Introduzca la altura </label><input type="text" class = " inputs" id="altura">
+        </div>
+        <div id = "botones">
+            <br><button  onclick = " calcular()">calcular</button><br><br>
+            <label>EL resultado es </label> <input type="text" class = " inputs" id = "resultado"><br><br>
+            <button  onclick = " borrar()">Borrar</button>
+        </div>
+    </body>
+</html>
