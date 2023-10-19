@@ -1,5 +1,5 @@
-let puntuacion = 0;
-let identificador =0;
+let puntuacion1 = 0;
+let puntuacion2= 0;
 
 const versus_IA = () => {
     eliminarTarjetas();
@@ -19,10 +19,10 @@ const versus_IA = () => {
     col2.classList.add('col-6');
      
     //creamos la tarjeta del Jugador 1
-    let jugador1Tarjeta = crearTarjeta('jugador 1', 'img/idle.png', puntuacion, 1)
+    let jugador1Tarjeta = crearTarjeta('jugador 1', 'img/idle.png', puntuacion1)
 
     //creamos la tarjeta de la IA
-    let jugadorIA_tarjeta = crearTarjeta('IA', 'img/idle.png', puntuacion, 2)
+    let jugadorIA_tarjeta = crearTarjeta('IA', 'img/idle.png', puntuacion2)
 
     //añadimos las tarjetas a sus respectivas columnas
     col1.appendChild(jugador1Tarjeta);  
@@ -38,6 +38,26 @@ const versus_IA = () => {
     generarBotonesJugar();
 }
 
+const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
+    console.log(jugadorID)
+    let jugador = document.createElement('div')
+    jugador.classList.add('card', 'border-primary', 'm-3', 'w-50', 'h-100', 'mx-auto', 'my-auto')
+
+    let contenido = `
+        <div class="card-header">${jugadorID}</div>
+        <div class="card-body text-left">
+            <img src="${imagenURL}" class="card-img-top" alt="${jugadorID}" id="imagen_${jugadorID}">
+            <p class="card-text">${jugadorID}: <span id="puntuacion_${jugadorID}">${puntuacion}</span></p>
+        </div>
+        <div class="card-footer" id = "footer_${jugadorID}">
+            
+        </div>
+    `;
+    
+    jugador.innerHTML = contenido;
+    console.log(jugador)
+    return jugador;
+};
 const generarBotonesJugar = () => {
     const posButton = document.getElementById('posButton');
 
@@ -75,52 +95,54 @@ const generarBotonesJugar = () => {
 
 
 
-
-const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
-    console.log(jugadorID)
-    let jugador = document.createElement('div')
-    jugador.classList.add('card', 'border-primary', 'm-3', 'w-50', 'h-100', 'mx-auto', 'my-auto')
-
-    let contenido = `
-        <div class="card-header">${jugadorID}</div>
-        <div class="card-body text-left">
-            <img src="${imagenURL}" class="card-img-top" alt="${jugadorID}" id="imagen_${jugadorID}">
-            <p class="card-text">${jugadorID}: <span id="puntuacion_${jugadorID}">${puntuacion}</span></p>
-        </div>
-    `;
-    
-    jugador.innerHTML = contenido;
-
-    return jugador;
-};
-
-
 const accionJugador = (accion, jugadorID) => {
     const imagenID = `imagen_${jugadorID}`; // ID de la imagen para el jugador
     const imagen = document.getElementById(imagenID); // Obtener la imagen por su ID
 
-    if (imagen) {
+    const footerID = `footer_${jugadorID}`
+    const footerB = document.getElementById(footerID)
+
+    let pulsado = false;
+
+    
         // El elemento existe en el DOM, puedes acceder a él y modificar sus propiedades
         switch (accion) {
             case 'jugar':
-                const userInput = prompt(`Ingrese su acción, ${jugadorID}: piedra, papel o tijera`);
-                if (userInput === 'piedra') {
-                    imagen.src = 'img/piedra.png'; // Cambiar la fuente de la imagen
-                }
-                // Resto del código para otras acciones...
-                break;
-
-            // Otros casos y acciones...
-
-            default:
-                console.error('Acción no válida.');
+   
+                let buttons = `
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugadorID}', ${imagen})">Piedra</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugadorID}', ${imagen})">Papel</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugadorID}', ${imagen})">Tijera</button>
+                </div>
+            
+                `;
+               footerB.innerHTML = buttons;
+              
+               
+            
+            break
+            
+            
+           
         }
-    } else {
-        console.error(`No se encontró un elemento con el id '${imagenID}'.`);
-    }
 };
 
 
+function buttonClicked(button, jugadorID) {
+    const textoBoton = button.textContent;
+    console.log(`Jugador: ${jugadorID} ha pulsado el botón: ${textoBoton}`);
+    
+     // cogemos todos los botontes del grupo
+     const botones = document.querySelectorAll(".btn.btn-outline-primary");
+
+     // Deshabilita todos los botones del grupo
+     botones.forEach((boton) => {
+         boton.disabled = true;
+     });
+
+    
+}
 
 
 
