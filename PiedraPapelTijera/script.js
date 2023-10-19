@@ -35,7 +35,7 @@ const versus_IA = () => {
     //añadimos la fila al contenedor
     jogo.appendChild(row);
 
-    generarBotonesJugar('jugador 1');
+    generarBotonesJugar();
 }
 
 const generarBotonesJugar = () => {
@@ -70,13 +70,14 @@ const generarBotonesJugar = () => {
     posButton.appendChild(row1);
     posButton.appendChild(row2);
 
-    jugar.onclick = () => accionJugador('jugar', 'Jugador 1');
+    jugar.onclick = () => accionJugador('jugar', 'jugador 1');
 };
 
 
 
 
 const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
+    console.log(jugadorID)
     let jugador = document.createElement('div')
     jugador.classList.add('card', 'border-primary', 'm-3', 'w-50', 'h-100', 'mx-auto', 'my-auto')
 
@@ -87,7 +88,7 @@ const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
             <p class="card-text">${jugadorID}: <span id="puntuacion_${jugadorID}">${puntuacion}</span></p>
         </div>
     `;
-
+    
     jugador.innerHTML = contenido;
 
     return jugador;
