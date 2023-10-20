@@ -1,3 +1,9 @@
+const seleccion = {
+    PIEDRA: 0,
+    PAPEL: 1,
+    TIJERA: 2,
+  };
+
 let puntuacion1 = 0;
 let puntuacion2= 0;
 
@@ -35,7 +41,7 @@ const versus_IA = () => {
     //añadimos la fila al contenedor
     jogo.appendChild(row);
 
-    generarBotonesJugar();
+    generarBotonesJugar('jugador 1', 'IA');
 }
 
 const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
@@ -58,7 +64,7 @@ const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
     console.log(jugador)
     return jugador;
 };
-const generarBotonesJugar = () => {
+const generarBotonesJugar = (jugador1, jugador2) => {
     const posButton = document.getElementById('posButton');
 
     const row1 = document.createElement('div');
@@ -90,36 +96,41 @@ const generarBotonesJugar = () => {
     posButton.appendChild(row1);
     posButton.appendChild(row2);
 
-    jugar.onclick = () => accionJugador('jugar', 'jugador 1');
+    jugar.onclick = () => accionJugador('jugar', jugador1, jugador2);
 };
 
 
 
-const accionJugador = (accion, jugadorID) => {
-    const imagenID = `imagen_${jugadorID}`; // ID de la imagen para el jugador
-    const imagen = document.getElementById(imagenID); // Obtener la imagen por su ID
-
-    const footerID = `footer_${jugadorID}`
+const accionJugador = (accion, jugador1ID, jugador2ID) => {
+    
+    
+    const imagenID1 = `imagen_${jugador1ID}`; // ID de la imagen para el jugador
+    const imagenID2 =  `imagen_${jugador2ID}`;
+        
+    const footerID = `footer_${jugador1ID}`
     const footerB = document.getElementById(footerID)
-
-    let pulsado = false;
-
+       
+ 
     
         // El elemento existe en el DOM, puedes acceder a él y modificar sus propiedades
         switch (accion) {
             case 'jugar':
-   
-                let buttons = `
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugadorID}', ${imagen})">Piedra</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugadorID}', ${imagen})">Papel</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugadorID}', ${imagen})">Tijera</button>
-                </div>
-            
-                `;
-               footerB.innerHTML = buttons;
-              
-               
+                console.log(jugador1ID, jugador2ID)
+
+                if(jugador1ID != 'IA'){
+                    let buttons = `
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador1ID}','${jugador2ID}', '${imagenID1}', '${imagenID2}')">Piedra</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador1ID}','${jugador2ID}', '${imagenID1}', '${imagenID2}')">Papel</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador1ID}','${jugador2ID}', '${imagenID1}', '${imagenID2}')">Tijera</button>
+                    </div>
+                
+                    `;
+                    
+                   footerB.innerHTML = buttons;
+                }
+                
+                
             
             break
             
@@ -129,9 +140,12 @@ const accionJugador = (accion, jugadorID) => {
 };
 
 
-function buttonClicked(button, jugadorID) {
+
+
+function buttonClicked(button, jugador1ID, jugador2ID,  imagen1, imagen2) {
     const textoBoton = button.textContent;
-    console.log(`Jugador: ${jugadorID} ha pulsado el botón: ${textoBoton}`);
+    
+    console.log(`Jugador: ${jugador1ID} ha pulsado el botón: ${textoBoton}`);
     
      // cogemos todos los botontes del grupo
      const botones = document.querySelectorAll(".btn.btn-outline-primary");
@@ -140,10 +154,54 @@ function buttonClicked(button, jugadorID) {
      botones.forEach((boton) => {
          boton.disabled = true;
      });
+     
+     let img1 = document.getElementById(imagen1);
+     let img2 = document.getElementById(imagen2)
 
+     let jugador1opcion;
+     let jugador2opcion;
+
+        switch(textoBoton){
+            case 'Piedra':
+                img1.src = "img/piedra.png"
+                jugador1opcion = PIEDRA;
+            break;
+            case 'Papel':
+                img1.src = "img/papel.png"
+                jugador1opcion = PAPEL;
+            break;
+            case 'Tijera':
+                img1.src = "img/tijera.png"
+                jugador1opcion = TIJERA;
+            break;
+        }
+        
+     
+     if(jugador2ID == 'IA'){
+        const numeroAleatorio = Math.random() * 3;
+        const redondeo = Math.floor(numeroAleatorio);
+        console.log(redondeo)
+
+        switch(redondeo){
+            case 0:
+                img2.src = "img/piedra.png"
+                jugador2opcion = PIEDRA;
+            break;
+            case 1:
+                img2.src = "img/papel.png"
+                jugador2opcion = PAPEL;
+            break;
+            case 2:
+                img1.src = "img/tijera.png"
+                jugador2opcion = TIJERA
+            break;
+
+        }
+        
+     }
+     
     
 }
-
 
 
 const eliminarTarjetas = () => {
