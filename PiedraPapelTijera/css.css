@@ -1,0 +1,16 @@
+#titulo {
+    font-family: 'Helvetica', sans-serif; /* Cambia la fuente según tus preferencias */
+    font-size: 28px; /* Tamaño de fuente */
+    text-align: center; /* Alinea el texto al centro */
+    color: #E74C3C; /* Color del texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    margin-top: 20px; /* Espacio en la parte superior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+    background-color: #F2F2F2; /* Color de fondo */
+    padding: 10px; /* Relleno interior */
+    border: 2px solid #BDC3C7; /* Borde */
+    border-radius: 8px; /* Borde redondeado */
+    border-color: aqua;
+  }
+  
+  
