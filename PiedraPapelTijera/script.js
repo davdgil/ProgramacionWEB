@@ -98,6 +98,7 @@ const versus_2J = () => {
     eliminarTarjetas();
     eliminarBotones();
     eliminarFinDelJuegoMSG();
+
     const jogo = document.getElementById('juego');
      
     //creamos la fila
@@ -144,7 +145,7 @@ const crearTarjeta = (jugadorID, imagenURL, puntuacion) => {
             <img src="${imagenURL}" class="card-img-top" alt="${jugadorID}" id="imagen_${jugadorID}">
             <p class="card-text">${jugadorID}: <span id="puntuacion_${jugadorID}">${puntuacion}</span></p>
         </div>
-        <div class="card-footer" id = "footer_${jugadorID}">
+        <div class="card-footer text-center" id = "footer_${jugadorID}">
             
         </div>
     `;
@@ -223,7 +224,7 @@ const accionJugador = (accion, jugador1ID, jugador2ID) => {
 
                 if(jugador1ID != 'IA'){
                     let buttons = `
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <div class="btn-group w-100" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador1ID}','${imagenID1}', '${1}')">Piedra</button>
                         <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador1ID}','${imagenID1}', '${1}')">Papel</button>
                         <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador1ID}','${imagenID1}', '${1}')">Tijera</button>
@@ -236,7 +237,7 @@ const accionJugador = (accion, jugador1ID, jugador2ID) => {
                 
                 if(jugador2ID != 'IA' && jugador2ID != 'IA_2'){
                     let buttons = `
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <div class="btn-group w-100" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador2ID}','${imagenID2}', '${2}')">Piedra</button>
                         <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador2ID}','${imagenID2}', '${2}')">Papel</button>
                         <button type="button" class="btn btn-outline-primary" onclick="buttonClicked(this, '${jugador2ID}','${imagenID2}', '${2}')">Tijera</button>
@@ -249,7 +250,7 @@ const accionJugador = (accion, jugador1ID, jugador2ID) => {
 
                if (jugador1ID != 'IA' && jugador2ID == 'IA'){
                 let buttons = `
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <div class="btn-group w-100" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-outline-primary" onclick="vs_IA(this, '${jugador1ID}','${imagenID1}','${jugador2ID}', '${imagenID2}' )">Piedra</button>
                         <button type="button" class="btn btn-outline-primary" onclick="vs_IA(this, '${jugador1ID}','${imagenID1}', '${jugador2ID}', '${imagenID2}')">Papel</button>
                         <button type="button" class="btn btn-outline-primary" onclick="vs_IA(this, '${jugador1ID}','${imagenID1}', '${jugador2ID}', '${imagenID2}')">Tijera</button>
