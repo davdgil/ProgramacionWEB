@@ -7,7 +7,7 @@ function App() {
   return (
     <header>
       <div className='App'>
-        <div className ='LogoU-tad'>
+        <div className ='LogoU-tadw'>
           <Logo />
         </div>
       </div>
