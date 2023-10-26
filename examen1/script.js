@@ -307,13 +307,17 @@ const verResultados = () =>{
 }
 
 const reiniciar = () =>{
-    setValorJugador1(0);
-    setValorJugador2(0);
-    setValorJugador3(0);
+    setValorJugador1(null);
+    setValorJugador2(null);
+    setValorJugador3(null);
 
     setPuntuacionJugador1(0);
     setPuntuacionJugador2(0);
     setPuntuacionJugador3(0);
+
+    setNjugadores(null)
+    setNpartidas(null)
+    
 
     const puntuacion1 = document.getElementById("puntuacion1")
     const puntuacion2 = document.getElementById("puntuacion2")
