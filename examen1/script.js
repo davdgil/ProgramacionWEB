@@ -146,8 +146,6 @@ const jugar = () => {
         console.log("Partidas: ", getNpartidas());
         console.log("Jugadores: ", getNjugadores());
 
-
-
         while (getNpartidas() > 0) {
 
             operarJugador1()
