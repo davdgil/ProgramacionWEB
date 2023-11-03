@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FormToDo from "FormToDo";
+import FormToDo from "./FormToDo";
 import ToDo from "./ToDo"
 import "../styles/List.css";
 

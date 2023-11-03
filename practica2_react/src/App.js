@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import NoteList from './components/NoteList'
+import NoteEditor from './components/NoteEditor';
 
 function App() {
   return (
     <div className="App">
-      <NoteList />
+      <NoteList  />
+      <NoteEditor></NoteEditor>
     </div>
   );
 }
