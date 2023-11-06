@@ -1,6 +1,6 @@
-import NodeList from './NoteList'
+import {NoteList, agregarNotas} from "./NoteList";
 
 
-function Note(){
+function Note({id, titulo, contenido}){
     
 }

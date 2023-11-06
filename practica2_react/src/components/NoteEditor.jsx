@@ -1,18 +1,25 @@
 import { useState } from "react";
-import NoteList from "./NoteList";
+import {NoteList, agregarNotas} from "./NoteList";
 
-function NoteEditor ({addNote}){
+function NoteEditor (){
 
 const [titulo, setTitulo]= useState('')
 const [contenido, setContenido] = useState('')
 
 
 const saveData = () =>{
+
     const nuevaNota = {
         titulo: titulo,
         contenido: contenido,
     };
+
+    agregarNotas(nuevaNota)
+    setTitulo('');
+    setContenido('');
+    
 }
+
 
 
 return(

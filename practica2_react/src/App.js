@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import NoteList from './components/NoteList'
+import { NoteList, agregarNotas } from './components/NoteList';
+
 import NoteEditor from './components/NoteEditor';
+<link rel="stylesheet" type="text/css" href="archivo.css"></link>
 
 function App() {
   return (

@@ -3,13 +3,13 @@ import { useState } from "react";
 
 function NoteList (){
 
-    const [notes, setNotes] = useState('');
+    const [notes, setNotes] = useState([]);
     
 
     const isEmpty = (notes) =>{
        return notes.length === 0
     }
-
+    
     const agregarNotas = (nota) =>{
       setNotes([...notes, nota])
     }
@@ -34,4 +34,4 @@ function NoteList (){
 
 }
 
-export default NoteList;
+export {NoteList, agregarNotas}
