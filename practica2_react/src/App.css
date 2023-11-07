@@ -7,20 +7,22 @@
   pointer-events: none;
 }
 
-.notasEmpty {
-  background-color: #f7f7f7; /* Color de fondo */
-  padding: 20px; /* Espaciado interior */
-  border: 1px solid #ddd; /* Borde con sombra */
-  border-radius: 5px; /* Bordes redondeados */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
-  text-align: center; /* Alineación de texto al centro */
-  font-family: Arial, sans-serif; /* Fuente de texto */
-  color: #333; /* Color del texto */
-}
-
-.notasEmpty p {
-  font-size: 18px; /* Tamaño de fuente para el párrafo */
-  margin: 0; /* Elimina el margen predeterminado del párrafo */
-}
-
 /* Agrega más estilos aquí según tus necesidades */
+
+#divisor {
+  border: none;
+  height: 8px;
+  background-color: #007acc; /* Color de la línea */
+  width: 100%;
+  animation: parpadeo 1s ease infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+

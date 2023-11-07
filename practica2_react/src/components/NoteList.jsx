@@ -1,28 +1,24 @@
-import { useState } from "react";
+import '../styles/noteList.css';
 
 
-function NoteList (){
-
-    const [notes, setNotes] = useState([]);
-    
-
-    const isEmpty = (notes) =>{
-       return notes.length === 0
-    }
-    
-    const agregarNotas = (nota) =>{
-      setNotes([...notes, nota])
-    }
-    
+function NoteList ( {notes} ){
+  const isEmpty = (notes) =>{
+    return notes.length === 0
+ }
+  
     return (
+  
       <div className="notasEmpty" id="">
         {isEmpty(notes) ? (
           <p>Todavía no has creado notas</p>
         ) : (
           <div className="notasNotEmpty">
+            <br />
             {notes.map((note, index) => (
               <div key={index}>
-                {note}
+                <h3>Nota {index}</h3>
+                {note.titulo} <br />
+                {note.contenido}
               </div>
             ))}
           </div>
@@ -34,4 +30,4 @@ function NoteList (){
 
 }
 
-export {NoteList, agregarNotas}
+export { NoteList}

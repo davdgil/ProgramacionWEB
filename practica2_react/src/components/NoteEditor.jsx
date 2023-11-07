@@ -1,7 +1,10 @@
 import { useState } from "react";
-import {NoteList, agregarNotas} from "./NoteList";
+import { NoteList} from './NoteList';
+import '../styles/editorStyles.css'; // Asegúrate de proporcionar la ruta correcta al archivo CSS si no está en la misma carpeta
 
-function NoteEditor (){
+
+
+function NoteEditor ( {agregarNotas} ){
 
 const [titulo, setTitulo]= useState('')
 const [contenido, setContenido] = useState('')
@@ -15,11 +18,11 @@ const saveData = () =>{
     };
 
     agregarNotas(nuevaNota)
+
     setTitulo('');
     setContenido('');
     
 }
-
 
 
 return(
@@ -37,11 +40,7 @@ return(
         
     </div>
 
-
 )
-
-
-
 
 }
 
