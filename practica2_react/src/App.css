@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Agrega más estilos aquí según tus necesidades */
+
+#divisor {
+  border: none;
+  height: 8px;
+  background-color: #007acc; /* Color de la línea */
+  width: 100%;
+  animation: parpadeo 1s ease infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
