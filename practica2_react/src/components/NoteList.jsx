@@ -7,8 +7,8 @@ function NoteList ( {notes} ){
  }
   
     return (
-  
-      <div className="notasEmpty" id="">
+        
+      <div className="notasEmpty">
         {isEmpty(notes) ? (
           <p>Todavía no has creado notas</p>
         ) : (

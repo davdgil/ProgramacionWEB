@@ -1,49 +1,44 @@
+/* Estilos para el contenedor de notas vacío */
 .notasEmpty {
-    background-color: #f7f7f7; /* Color de fondo */
-    padding: 20px; /* Espaciado interior */
-    border: 1px solid #ddd; /* Borde con sombra */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
-    text-align: center; /* Alineación de texto al centro */
-    font-family: Arial, sans-serif; /* Fuente de texto */
-    color: #333; /* Color del texto */
-  }
-  
-  .notasEmpty p {
-    font-size: 18px; /* Tamaño de fuente para el párrafo */
-    margin: 0; /* Elimina el margen predeterminado del párrafo */
-  }
-/* Estilos para el contenedor de notas */
-/* Estilos para el contenedor de notas */
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Estilos para el mensaje dentro del contenedor vacío */
+.notasEmpty p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Estilos para el contenedor de notas no vacío */
 .notasNotEmpty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Estilos para cada nota individual */
-  .notasNotEmpty .note-item {
-    background-color: #f4f4f4; /* Color de fondo de cada nota */
-    border: 2px solid #007acc; /* Borde de cada nota */
-    border-radius: 8px; /* Borde redondeado */
-    padding: 10px;
-    margin: 10px;
-    max-width: 400px; /* Ancho máximo para cada nota */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    font-size: 16px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Estilos para el espacio entre las notas */
-  .notasNotEmpty .note-item + .note-item {
-    margin-top: 20px; /* Espacio entre notas */
-  }
-  
-  
-  
-  .notasNotEmpty p {
-    font-size: 18px; /* Tamaño de fuente para el párrafo */
-    margin: 0; /* Elimina el margen predeterminado del párrafo */
-  }
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Estilos para las notas individuales */
+.notasNotEmpty > div {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos para el título de la nota */
+.notasNotEmpty h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el contenido de la nota */
+.notasNotEmpty .contenido {
+  font-size: 16px;
+  color: #555;
+}

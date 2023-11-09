@@ -1,5 +1,16 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea elementos hacia la parte superior */
+}
+
+.EditorAndListContainer {
+  margin-top: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  width: 70%; /* Ocupa el 70% de la pantalla */
+  margin-right: 5px;
 }
 
 .App-logo {
@@ -7,14 +18,23 @@
   pointer-events: none;
 }
 
+.Note {
+  margin-top: 20px;
+  margin-right: 50px;
+  padding: 10px;
+  
+  flex-direction: column; /* Apila los elementos verticalmente */
+  width: 30%; /* Ocupa el 70% de la pantalla */
+}
+
 /* Agrega más estilos aquí según tus necesidades */
 
 #divisor {
   border: none;
   height: 8px;
-  background-color: #007acc; /* Color de la línea */
+  background-color: #09d871; /* Color de la línea */
   width: 100%;
-  animation: parpadeo 1s ease infinite;
+  animation: parpadeo 2s ease infinite;
 }
 
 @keyframes parpadeo {

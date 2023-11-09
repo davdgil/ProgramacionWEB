@@ -35,7 +35,7 @@ return(
             <textarea value={contenido} onChange={(e) => setContenido(e.target.value)} />
         </div>
         <div className="saveButton">
-            <button onClick={saveData}>Guardar</button>
+            <button className ='button' onClick={saveData}>Guardar</button>
         </div>
         
     </div>

@@ -3,7 +3,8 @@ import './App.css';
 import { NoteList, agregarNotas } from './components/NoteList';
 import { useState } from "react";
 import NoteEditor from './components/NoteEditor';
-<link rel="stylesheet" type="text/css" href="archivo.css"></link>
+import Note from './components/Note';
+
 
 function App() {
 
@@ -16,15 +17,28 @@ function App() {
   }
 
 
-
   return (
     <div className="App">
-      <NoteEditor agregarNotas = {agregarNotas}/>
-      <hr id ="divisor"></hr>
-      <NoteList notes = {notes} />
-      
+      <div className="EditorAndListContainer">
+        <div className="NoteEditor">
+          <NoteEditor agregarNotas={agregarNotas} />
+        </div>
+        <hr id="divisor"></hr>
+        <div className="NoteList">
+          <NoteList notes={notes} />
+        </div>
+      </div>
+      <div className="Note">
+        <Note></Note>
+      </div>
     </div>
   );
+  
+  
+  
+  
+  
+  
 }
 
 export default App;
