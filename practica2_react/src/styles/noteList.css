@@ -42,3 +42,20 @@
   font-size: 16px;
   color: #555;
 }
+
+.eliminarNota {
+  text-align: right;
+}
+
+.eliminarNota button {
+  background-color: #ff0000; /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  padding: 8px 16px; /* Espaciado interno (arriba/abajo izquierda/derecha) */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor apuntador al pasar el ratón */
+}
+
+.eliminarNota button:hover {
+  background-color: #cc0000; /* Cambia el color de fondo al pasar el ratón */
+}

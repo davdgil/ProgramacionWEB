@@ -1,11 +1,12 @@
 import '../styles/noteList.css';
 
 
-function NoteList ( {notes} ){
+function NoteList ( {notes, removeNote} ){
   const isEmpty = (notes) =>{
     return notes.length === 0
  }
-  
+ 
+ 
     return (
         
       <div className="notasEmpty">
@@ -19,6 +20,11 @@ function NoteList ( {notes} ){
                 <h3>Nota {index}</h3>
                 {note.titulo} <br />
                 {note.contenido}
+
+                <div className='eliminarNota'>
+                  <button onClick={()=>removeNote(index)}>Eliminar</button>
+                </div>
+                
               </div>
             ))}
           </div>
@@ -26,7 +32,9 @@ function NoteList ( {notes} ){
       </div>
     );
     
-      
+}
+
+const notaFiltrada = (notaFiltrada) =>{
 
 }
 

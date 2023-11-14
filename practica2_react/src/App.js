@@ -6,6 +6,7 @@ import NoteEditor from './components/NoteEditor';
 import Note from './components/Note';
 
 
+
 function App() {
 
   const [notes, setNotes] = useState([]);
@@ -16,6 +17,13 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
   }
 
+  const removeNote = (index) => {
+    const updatedNotes = [...notes];
+    updatedNotes.splice(index, 1);
+    setNotes(updatedNotes);
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  };
+
 
   return (
     <div className="App">
@@ -25,11 +33,11 @@ function App() {
         </div>
         <hr id="divisor"></hr>
         <div className="NoteList">
-          <NoteList notes={notes} />
+          <NoteList notes={notes} removeNote={removeNote} />
         </div>
       </div>
       <div className="Note">
-        <Note></Note>
+        <Note notas={notes}></Note>
       </div>
     </div>
   );
