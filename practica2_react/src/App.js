@@ -1,16 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import { NoteList, agregarNotas } from './components/NoteList';
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import NoteEditor from './components/NoteEditor';
-import Note from './components/Note';
+import NoteBuscador from './components/NoteBuscador';
 
 
 
 function App() {
 
   const [notes, setNotes] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [filteredNotes, setFilteredNotes] = useState([]);
     
+    // Cargar notas desde el almacenamiento local al iniciar la aplicación
+    useEffect(() => {
+      const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+      setNotes(storedNotes);
+    }, []);
+
   const agregarNotas = (nota) => {
     const updatedNotes = [...notes, nota];
     setNotes(updatedNotes);
@@ -24,6 +31,16 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
 
+  const handleSearch = (text) => {
+    setSearchText(text);
+    const filtrada = notes.filter((note) =>
+      note.titulo.toLowerCase().startsWith(text.toLowerCase())
+
+    );
+    setFilteredNotes(filtrada);
+  };
+  
+  
 
   return (
     <div className="App">
@@ -33,20 +50,16 @@ function App() {
         </div>
         <hr id="divisor"></hr>
         <div className="NoteList">
-          <NoteList notes={notes} removeNote={removeNote} />
+        <NoteList notes={searchText ? filteredNotes : notes} removeNote={removeNote} />
         </div>
       </div>
       <div className="Note">
-        <Note notas={notes}></Note>
+        <NoteBuscador onSearch={handleSearch}></NoteBuscador>
       </div>
     </div>
   );
   
-  
-  
-  
-  
-  
+
 }
 
 export default App;

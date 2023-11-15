@@ -23,3 +23,14 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+  h1 {
+    color: #3498db; /* Azul */
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  }

@@ -7,20 +7,44 @@
   text-align: center;
 }
 
-/* Estilos para el mensaje dentro del contenedor vacío */
-.notasEmpty p {
-  font-size: 18px;
-  color: #666;
+/* Agrega esto a tu archivo de estilos */
+/* noteList.css */
+
+/* Agrega esto a tu archivo de estilos */
+/* noteList.css */
+
+/* Agrega esto a tu archivo de estilos */
+/* noteList.css */
+
+@keyframes textTransformAnimation {
+  0%, 100% {
+    text-transform: uppercase;
+    color: #333; /* Color inicial (puedes ajustarlo) */
+  }
+  50% {
+    text-transform: lowercase;
+    color: red; /* Color intermedio (puedes ajustarlo) */
+  }
 }
 
-/* Estilos para el contenedor de notas no vacío */
-.notasNotEmpty {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-top: 20px;
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.7; /* Opacidad inicial y final  */
+  }
+  50% {
+    opacity: 1; /* Opacidad intermedia  */
+  }
 }
+
+.notasEmpty p {
+  display: inline-block;
+  animation: textTransformAnimation 2s linear infinite alternate,
+             fadeInOut 2s linear infinite alternate;
+}
+
+
+
+
 
 /* Estilos para las notas individuales */
 .notasNotEmpty > div {
@@ -30,32 +54,4 @@
   border-radius: 5px;
 }
 
-/* Estilos para el título de la nota */
-.notasNotEmpty h3 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 10px;
-}
 
-/* Estilos para el contenido de la nota */
-.notasNotEmpty .contenido {
-  font-size: 16px;
-  color: #555;
-}
-
-.eliminarNota {
-  text-align: right;
-}
-
-.eliminarNota button {
-  background-color: #ff0000; /* Color de fondo */
-  color: #ffffff; /* Color del texto */
-  padding: 8px 16px; /* Espaciado interno (arriba/abajo izquierda/derecha) */
-  border: none; /* Sin borde */
-  border-radius: 4px; /* Bordes redondeados */
-  cursor: pointer; /* Cursor apuntador al pasar el ratón */
-}
-
-.eliminarNota button:hover {
-  background-color: #cc0000; /* Cambia el color de fondo al pasar el ratón */
-}

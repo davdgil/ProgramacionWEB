@@ -1,20 +1,15 @@
-import {NoteList, agregarNotas} from "./NoteList";
-import '../styles/noteStyles.css'; 
-import { useState } from "react";
+import React from 'react';
+import '../styles/note.css'
 
-function Note({notes}){
-
-    const [buscador, setBuscador] = useState('');
-
-    return (
-
-        <div className="notaSingle">
-            <h1>Buscador de Notas</h1>
-            <div className="buscador">
-                <input type="text"  value={buscador} onChange={(e)=> setBuscador(e.target.value)}/>
-             </div>
-        </div>
-    )
+function Note({ index, titulo, contenido, removeNote }) {
+  return (
+    <div className="notas" >
+      <h2>Nota {index}</h2>  
+      {titulo} <br />
+      {contenido}
+      <button onClick={removeNote}>Eliminar</button>
+    </div>
+  );
 }
 
-export default Note
+export default Note;
