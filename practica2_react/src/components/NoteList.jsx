@@ -6,8 +6,6 @@ function NoteList ( {notes, removeNote, searchText} ){
   const isEmpty = (notes) =>{
     return notes.length === 0
  }
-
- 
  
 return (
   <div className="notasEmpty">
@@ -18,11 +16,11 @@ return (
         <br />
         {notes.map((note, index) => (
           <Note
-            key={index}
+            key={note.id}
             index={index}
             titulo={note.titulo}
             contenido={note.contenido}
-            removeNote={() => removeNote(index)}
+            removeNote={() => removeNote(note.id)}
           />
         ))}
       </div>

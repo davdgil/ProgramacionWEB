@@ -24,24 +24,20 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
   }
 
-  const removeNote = (index) => {
-    const updatedNotes = [...notes];
-    updatedNotes.splice(index, 1);
-    setNotes(updatedNotes);
-    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  const removeNote = (id) => {
+    const newList = notes.filter((note) => note.id  !== id)
+    setNotes(newList);
+    localStorage.setItem("notes", JSON.stringify(newList));
   };
 
   const handleSearch = (text) => {
-    setSearchText(text);
-    const filtrada = notes.filter((note) =>
-      note.titulo.toLowerCase().startsWith(text.toLowerCase())
-
-    );
-    setFilteredNotes(filtrada);
+    setSearchText(text); 
+    
   };
-  
-  
 
+    const filtrada = notes.filter((note) =>
+    note.titulo.toLowerCase().startsWith(searchText.toLowerCase()));
+  
   return (
     <div className="App">
       <div className="EditorAndListContainer">
@@ -50,7 +46,7 @@ function App() {
         </div>
         <hr id="divisor"></hr>
         <div className="NoteList">
-        <NoteList notes={searchText ? filteredNotes : notes} removeNote={removeNote} />
+        <NoteList notes={filtrada} removeNote={removeNote} />
         </div>
       </div>
       <div className="Note">

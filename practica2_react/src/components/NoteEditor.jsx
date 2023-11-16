@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../styles/editorStyles.css'; 
+import { v4 as uuidv4 } from 'uuid';
 
 function NoteEditor ( {agregarNotas} ){
 
@@ -10,6 +11,7 @@ const [contenido, setContenido] = useState('')
 const saveData = () =>{
 
     const nuevaNota = {
+        id: uuidv4(),
         titulo: titulo,
         contenido: contenido,
     };
