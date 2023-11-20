@@ -23,13 +23,15 @@ function App() {
      
     }, [matches]);
   
-    const showMatch = () => {
-     
-    }
-
+    const showPostId = () => {
+      postId.map((postId, index) => {
+        console.log(postId);
+      });
+    };
+    
   return (
     <div className="App">
-      
+      {showPostId}
     </div>
   );
 }
