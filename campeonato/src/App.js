@@ -1,34 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
-import React,{ useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [matches, setMatches] = useState([]);
+  const [postId, setPostId] = useState('');
 
-  const [matches, setMatches] = useState([])
-  const [postId, setPostId] = useState('')
-
-  useEffect(() => {// POST request using fetch inside useEffect React hook
-
+  useEffect(() => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({tournamentId: matches})
+      body: JSON.stringify({ tournamentId: matches }),
     };
 
     fetch('https://jsonplaceholder.typicode.com/users', requestOptions)
-        .then(response => response.json())
-        .then(data => setPostId(data.id));
-    //}, []);// empty dependency array means this effect will only run once
-     
-    }, [matches]);
-  
-    const showPostId = () => {
-      postId.map((postId, index) => {
-        console.log(postId);
-      });
-    };
-    
+      .then(response => response.json())
+      .then(data => setPostId(data.id));
+  }, [matches]);
+
+  const showPostId = () => {
+    postId.map((id, index) => {
+      console.log(id); // Assuming match is the correct variable to log
+    });
+  };
+
   return (
     <div className="App">
       {showPostId}
