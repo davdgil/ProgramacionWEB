@@ -1,0 +1,7 @@
+/* Estilos para cambiar el color de fondo de los álbumes que coinciden */
+.album-coincide {
+    background-color: lightgreen; /* Cambia el color de fondo según tus preferencias */
+}
+.album-creado-manualmente {
+    background-color: lightblue; /* Cambia el color de fondo según tus preferencias */
+}
